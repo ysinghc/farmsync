@@ -18,6 +18,7 @@ function populateProfile() {
         let restaurantAddress = getCookie("address");
         let restaurantPin = getCookie("pin_code");
         let restaurantGovtId = getCookie("govt_id");
+        let restaurantAge = getCookie("age");
         let restaurantState = getCookie("state_of_residence");
 
         // Update the profile fields in the HTML
@@ -26,6 +27,7 @@ function populateProfile() {
         if (restaurantAddress) document.getElementById("restaurant-address").innerText = `Address: ${restaurantAddress}`;
         if (restaurantPin) document.getElementById("restaurant-pin").innerText = `Pin Code: ${restaurantPin}`;
         if (restaurantGovtId) document.getElementById("restaurant-govt-id").innerText = `Government ID: ${restaurantGovtId}`;
+        if (restaurantAge) document.getElementById("restaurant-age").innerText = `Age: ${restaurantAge}`;
         if (restaurantState) document.getElementById("restaurant-state").innerText = `State: ${restaurantState}`;
         if (userType) document.getElementById("user-type").innerText = `${userType}`;
     } catch (error) {
