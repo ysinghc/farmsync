@@ -41,11 +41,11 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
 
             // Redirect based on user type
             if (userType === "farmer") {
-                window.location.href = "https://farmsync-github-io.pages.dev/DashBoard/farmer_dashboard.html";
+                window.location.href = "https://farmsync.pages.dev/DashBoard/farmer_dashboard.html";
             } else if (userType === "individual") {
-                window.location.href = "https://farmsync-github-io.pages.dev/profiles/individual_profile/individual_profile.html";
+                window.location.href = "https://farmsync.pages.dev/profiles/individual_profile/individual_profile.html";
             } else if (userType === "restaurant") {
-                window.location.href = "https://farmsync-github-io.pages.dev/profiles/restraunt_profile/restraunt_profile.html";
+                window.location.href = "https://farmsync.pages.dev/profiles/restraunt_profile/restraunt_profile.html";
             }
         } else {
             if (response.status === 401) {

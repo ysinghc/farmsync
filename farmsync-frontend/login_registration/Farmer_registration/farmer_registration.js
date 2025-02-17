@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (response.ok) {
                 alert("Registration Successful! Redirecting to login...");
-                window.location.href = "https://farmsync.pages.dev/Login_registration/Login_page/loginform.html"; // ✅ Redirect to frontend login page
+                window.location.href = "https://farmsync.pages.dev/login_registration/Login_page/loginform.html"; // ✅ Redirect to frontend login page
             } else {
                 if (response.status === 401) {
                     alert("Unauthorized access. Please check your credentials.");
