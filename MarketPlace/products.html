@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketPlace - Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77aaff 3px solid;
+            position: relative;
+        }   
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        .cart {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            cursor: pointer;
+        }
+        .cart-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background: #fff;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+        .cart-dropdown ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .cart-dropdown li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-dropdown li:last-child {
+            border-bottom: none;
+        }
+        .cart-dropdown button {
+            background: #77aaff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .cart-dropdown button:hover {
+            background: #0056b3;
+        }
+        .product {
+            background: #fff;
+            margin: 25px 0;
+            padding: 75px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .product h2 {
+            margin: 0;
+            padding: 0;
+        }
+        .product p {
+            margin: 10px 0;
+        }
+        .product button {
+            background: #77aaff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .product button:hover {
+            background: #0056b3;
+        }
+        .each-row{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: stretch;
+           
+        }
+        #row-1{
+            flex: 1;
+            margin: 10px;
+        }
+        #row-2{
+            flex: 1;
+            margin: 10px;
+        }
+        #row-3{
+            flex: 1;
+            margin: 10px;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>MarketPlace</h1>
+            <div class="cart" onclick="toggleCartDropdown()">
+                <img style="background-color: #f4f4f4;" src="images/shopping-cart.png" alt="Cart" width="30vh">
+                <div class="cart-dropdown" id="cart-dropdown">
+                    <ul id="cart-items">
+                        <li>Items in the Cart</li>
+                    </ul>
+                    <button onclick="proceedToBuy()">Proceed to Buy</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="each-row" id="row-1">
+
+            <div class="product">
+                <h2>Crop Name: Wheat</h2>
+                <p>Farmer: John Doe</p>
+                <p>Price: ₹10 per kg</p>
+                <p>Quantity: <input type="number" name="quantity" min="1" max="100" value="1"></p>
+                <button onclick="addToCart('Wheat', 10, this)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Crop Name: Rice</h2>
+                <p>Farmer: Jane Smith</p>
+                <p>Price: ₹12 per kg</p>
+                <p>Quantity: <input type="number" name="quantity" min="1" max="100" value="1"></p>
+                <button onclick="addToCart('Rice', 12, this)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Crop Name: Corn</h2>
+                <p>Farmer: Bob Johnson</p>
+                <p>Price: ₹8 per kg</p>
+                <p>Quantity: <input type="number" name="quantity" min="1" max="100" value="1"></p>
+                <button onclick="addToCart('Corn', 8, this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="each-row" id="row-2">
+
+            <div class="product">
+                <h2>Crop Name: Barley</h2>
+                <p>Farmer: Alice Brown</p>
+                <p>Price: ₹9 per kg</p>
+                <p>Quantity: <input type="number" name="quantity" min="1" max="100" value="1"></p>
+                <button onclick="addToCart('Barley', 9, this)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Crop Name: Beans</h2>
+                <p>Farmer: Charlie Davis</p>
+                <p>Price: ₹11 per kg</p>
+                <p>Quantity: <input type="number" name="quantity" min="1" max="100" value="1"></p>
+                <button onclick="addToCart('Beans', 11, this)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Crop Name: Oats</h2>
+                <p>Farmer: Emily Wilson</p>
+                <p>Price: ₹7 per kg</p>
+                <p>Quantity: <input type="number" name="quantity" min="1" max="100" value="1"></p>
+                <button onclick="addToCart('Oats', 7, this)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="each-row" id="row-3">
+
+            <div class="product">
+                <h2>Crop Name: Quinoa</h2>
+                <p>Farmer: Frank Miller</p>
+                <p>Price: ₹10 per kg</p>
+                <p>Quantity: <input type="number" name="quantity" min="1" max="100" value="1"></p>
+                <button onclick="addToCart('Quinoa', 10, this)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Crop Name: Millet</h2>
+                <p>Farmer: Grace Lee</p>
+                <p>Price: ₹9 per kg</p>
+                <p>Quantity: <input type="number" name="quantity" min="1" max="100" value="1"></p>
+                <button onclick="addToCart('Millet', 9, this)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h2>Crop Name: Rye</h2>
+                <p>Farmer: Henry Clark</p>
+                <p>Price: ₹15 per kg</p>
+                <p>Quantity: <input type="number" name="quantity" min="1" max="100" value="1"></p>
+                <button onclick="addToCart('Rye', 15, this)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <!-- Add more products as needed -->
+</div>
+<script>
+    function toggleCartDropdown() {
+        var cartDropdown = document.getElementById('cart-dropdown');
+        if (cartDropdown.style.display === 'none' || cartDropdown.style.display === '') {
+            cartDropdown.style.display = 'block';
+        } else {
+            cartDropdown.style.display = 'none';
+        }
+    }
+
+    function addToCart(productName, productPrice, button) {
+        var quantity = button.previousElementSibling.querySelector('input').value;
+        var cartItems = document.getElementById('cart-items');
+        var newItem = document.createElement('li');
+        newItem.innerHTML = productName + ' - ₹' + productPrice + ' x ' + quantity + ' <button onclick="removeFromCart(this)">Remove</button>';
+        cartItems.appendChild(newItem);
+    }
+
+    function removeFromCart(button) {
+        var item = button.parentElement;
+        item.remove();
+    }
+
+    function proceedToBuy() {
+        alert('Proceeding to buy...');
+    }
+</script>
+</body>
+</html>
